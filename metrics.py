@@ -47,7 +47,7 @@ def mase(y_pred, y_true, method='naive', X_test=None, constant=None):
     if method == 'mean':
         y_method = X_test.mean(axis=1).values
     if method == 'median':
-        y_method = X_test.mean(axis=1).values
+        y_method = X_test.median(axis=1).values
     if method == 'constant':
         y_method = np.full(y_true.shape, constant)
     return mae(y_true, y_pred) / mae(y_true, y_method)  # todo fix division by zero
